@@ -33,7 +33,7 @@ material_sliderInput <- function(
       name = "material_slider-input",
       version = "1.0.0",
       src = "www/reactmaterialpkg/material_action_button",
-      package = "shiny.materialpicker",
+      package = "shiny.muicalendar",
       script = "material_action_button.js"
     ),
     default,

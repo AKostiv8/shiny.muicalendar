@@ -37,7 +37,7 @@ material_timepickerInput <- function(
       name = "material_timepicker-input",
       version = "1.0.0",
       src = "www/reactmaterialpkg/material_action_button",
-      package = "shiny.materialpicker",
+      package = "shiny.muicalendar",
       script = "material_action_button.js"
     ),
     default = lubridate::ymd_hms(value),

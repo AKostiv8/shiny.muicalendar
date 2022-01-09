@@ -25,7 +25,7 @@ material_switch_buttonInput <- function(
       name = "material_switch_button-input",
       version = "1.0.0",
       src = "www/reactmaterialpkg/material_action_button",
-      package = "shiny.materialpicker",
+      package = "shiny.muicalendar",
       script = "material_action_button.js"
     ),
     default = checked,
