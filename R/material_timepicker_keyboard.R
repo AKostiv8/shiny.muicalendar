@@ -10,6 +10,8 @@ material_timepicker_keyboardInput <- function(
   inputId,
   value = NULL,
   label = NULL,
+  primary_color = '#353535',
+  secondary_color = '#ff9900',
   ampm = FALSE,
   autoOk = TRUE,
   variant = c("default", "static", "inline"),
@@ -45,6 +47,8 @@ material_timepicker_keyboardInput <- function(
     configuration = list(
       value = lubridate::ymd_hms(value),
       label = label,
+      primary_color = primary_color,
+      secondary_color = secondary_color,
       ampm = ampm,
       autoOk = autoOk,
       variant = variant,

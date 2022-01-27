@@ -18,6 +18,8 @@ material_calendarInput <- function(
   minDate = NULL,
   maxDate = NULL,
   format = "default",
+  primary_color = '#353535',
+  secondary_color = '#ff9900',
   disableToolbar = FALSE,
   view = c("year-day", "year-month-day", "year", "year-month"),
   helperText = NULL,
@@ -52,6 +54,8 @@ material_calendarInput <- function(
     configuration = list(
       value = lubridate::ymd(value),
       label = label,
+      primary_color = primary_color,
+      secondary_color = secondary_color,
       minDate = lubridate::ymd(minDate),
       maxDate = lubridate::ymd(maxDate),
       format = format,
@@ -66,7 +70,7 @@ material_calendarInput <- function(
       outlined = outlined,
       helperText = helperText
     ),
-    htmltools::tags$span
+    htmltools::tags$div
   )
 }
 
@@ -75,8 +79,13 @@ material_calendarInput <- function(
 #' <Add Description>
 #'
 #' @export
-updateMaterial_calendarInput <- function(session, inputId, value, configuration = NULL) {
-  message <- list(value = value)
+updateMaterial_calendarInput <- function(session,
+                                         inputId,
+                                         # value,
+                                         configuration = NULL
+                                ) {
+  # message <- list(value = value)
+  message <- list()
   if (!is.null(configuration)) message$configuration <- configuration
   session$sendInputMessage(inputId, message);
 }

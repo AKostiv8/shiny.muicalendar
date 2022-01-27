@@ -77457,12 +77457,12 @@ function MaterialCalendar(_ref) {
     palette: {
       primary: {
         // light: will be calculated from palette.primary.main,
-        main: '#031c2b' // dark: will be calculated from palette.primary.main,
+        main: configuration.primary_color // dark: will be calculated from palette.primary.main,
         // contrastText: will be calculated to contrast with palette.primary.main
 
       },
       secondary: {
-        main: '#0099f9'
+        main: configuration.secondary_color
       }
     }
   });
@@ -77590,12 +77590,12 @@ function MaterialCalendarKeyboard(_ref) {
     palette: {
       primary: {
         // light: will be calculated from palette.primary.main,
-        main: '#031c2b' // dark: will be calculated from palette.primary.main,
+        main: configuration.primary_color // dark: will be calculated from palette.primary.main,
         // contrastText: will be calculated to contrast with palette.primary.main
 
       },
       secondary: {
-        main: '#0099f9'
+        main: configuration.secondary_color
       }
     }
   });
@@ -77896,13 +77896,10 @@ function MaterialTimePicker(_ref) {
   var theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["createTheme"])({
     palette: {
       primary: {
-        // light: will be calculated from palette.primary.main,
-        main: '#031c2b' // dark: will be calculated from palette.primary.main,
-        // contrastText: will be calculated to contrast with palette.primary.main
-
+        main: configuration.primary_color
       },
       secondary: {
-        main: '#0099f9'
+        main: configuration.secondary_color
       }
     }
   });
@@ -78020,13 +78017,10 @@ function MaterialTimePickerKeyboard(_ref) {
   var theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["createTheme"])({
     palette: {
       primary: {
-        // light: will be calculated from palette.primary.main,
-        main: '#031c2b' // dark: will be calculated from palette.primary.main,
-        // contrastText: will be calculated to contrast with palette.primary.main
-
+        main: configuration.primary_color
       },
       secondary: {
-        main: '#0099f9'
+        main: configuration.secondary_color
       }
     }
   });

@@ -4,67 +4,99 @@ library(shiny)
 library(shiny.muicalendar)
 
 ui <- div(
-  # material_action_buttonInput(inputId = "btn",
-  #                             label = "Test button",
-  #                             size = "large",
-  #                             color = "primary",
-  #                             outline = FALSE),
+  material_action_buttonInput(inputId = "btn",
+                              label = "Test button",
+                              size = "large",
+                              color = "primary",
+                              outline = FALSE),
   # material_switch_buttonInput("Test", label = "Test_one", color = "primary", checked = TRUE),
   # material_switch_buttonInput("Test2", color = "secondary", disabled = TRUE),
   # material_sliderInput("Slider_test_id", aria_labelled_by = "discrete-slider",
   #                      value = c(10, 20), step = 1, marks = TRUE, vertical = TRUE,
   #                      min = 0, max = 100),
   material_calendarInput("calendar_test_id",
-                         value = NULL,
-                         label = 'Label Text', view = "year-month-day",
-                         variant = "inline", horizontal_orientation = FALSE,
-                         outlined = FALSE, helperText = "Helper text example - optional",
-                         disableToolbar = FALSE, minDate = '2021/10/22', maxDate = '2021/11/20'
+                         autoOk = FALSE,
+                         label = 'Label Text',
+                         view = "year-month-day", primary_color = "#f90",
+                         secondary_color = "#f90",
+                         # variant = "inline",
+                         horizontal_orientation = FALSE,
+                         outlined = FALSE,
+                         helperText = "Helper text example - optional",
+                         disableToolbar = FALSE,
+                         minDate = '2021/10/22',
+                         maxDate = '2021/11/20'
                         ),
-  material_calendar_keyboardInput("calendarkeyboard_test_id",
-                         value = NULL,
-                         label = 'Label Text', view = "year-day", outlined = TRUE,
-                         variant = "inline", helperText = "With keyboard",format = "yyyy/MM/dd",
-                         minDate = '2021/10/22', maxDate = '2021/11/20'
-  ),
-  material_timepickerInput('time_test_id', value = Sys.time(), ampm = FALSE, autoOk = FALSE,
-                           label = "24 hours", showTodayButton = FALSE,
-                           openTo = "minutes", views = "hms", outlined = TRUE),
-  material_timepicker_keyboardInput("timekeyboard_test_id", placeholder = "08:00 AM",
-                                    mask="__:__ _M", format = "HH:mm:ss")
+
+  # material_calendar_keyboardInput("calendarkeyboard_test_id",
+  #                        value = NULL,
+  #                        label = 'Label Text', view = "year-day", outlined = TRUE,
+  #                        variant = "inline", helperText = "With keyboard",format = "yyyy/MM/dd",
+  #                        minDate = '2021/10/22', maxDate = '2021/11/20'
+  # ),
+  # material_timepickerInput('time_test_id', value = Sys.time(), ampm = FALSE, autoOk = FALSE,
+  #                          label = "24 hours", showTodayButton = FALSE,
+  #                          openTo = "minutes", views = "hms", outlined = TRUE),
+  # material_timepicker_keyboardInput("timekeyboard_test_id", placeholder = "08:00 AM",
+  #                                   mask="__:__ _M", format = "HH:mm:ss")
 
 
 )
 
 server <- function(input, output, session) {
 
-  observeEvent(input$Test, {
-    print(input$Test)
+  observeEvent(input$btn, {
+    updateMaterial_calendarInput(session,
+                                 'calendar_test_id',
+                                 configuration = list(
+                                   value = Sys.Date(),
+                                   primary_color = "#f90",
+                                   secondary_color = "#f80",
+                                   label = 'Label Text',
+                                   horizontal_orientation = FALSE,
+                                   outlined = FALSE,
+                                   disableToolbar = FALSE
+                                  )
+                                 )
+    # updateMaterial_action_buttonInput(
+    #   session,
+    #   'btn',
+    #   value = NULL,
+    #   configuration = list(
+    #     label = 'Updated text',
+    #     outlined = TRUE
+    #   )
+    # )
+
   })
 
-  observeEvent(input$Slider_test_id, {
-    print(input$Slider_test_id)
-  })
+#   observeEvent(input$Test, {
+#     print(input$Test)
+#   })
 
-  observeEvent(input$standardslider, {
-    print(input$standardslider)
-  })
-
-  observeEvent(input$calendar_test_id, {
-    print(input$calendar_test_id)
-  })
-
-  observeEvent(input$calendarkeyboard_test_id, {
-    print(input$calendarkeyboard_test_id)
-  })
-
-  observeEvent(input$time_test_id, {
-    print(input$time_test_id)
-  })
-
-  observeEvent(input$timekeyboard_test_id, {
-    print(input$timekeyboard_test_id)
-  })
+  # observeEvent(input$Slider_test_id, {
+  #   print(input$Slider_test_id)
+  # })
+  #
+  # observeEvent(input$standardslider, {
+  #   print(input$standardslider)
+  # })
+  #
+  # observeEvent(input$calendar_test_id, {
+  #   print(input$calendar_test_id)
+  # })
+  #
+  # observeEvent(input$calendarkeyboard_test_id, {
+  #   print(input$calendarkeyboard_test_id)
+  # })
+  #
+  # observeEvent(input$time_test_id, {
+  #   print(input$time_test_id)
+  # })
+  #
+  # observeEvent(input$timekeyboard_test_id, {
+  #   print(input$timekeyboard_test_id)
+  # })
 
 }
 

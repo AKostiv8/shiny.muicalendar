@@ -18,4 +18,6 @@ Imports:
     htmltools,
     htmlwidgets,
     reactR,
-    shiny
+    shiny,
+    lubridate,
+    stringr

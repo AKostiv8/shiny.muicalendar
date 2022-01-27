@@ -11,6 +11,8 @@ material_calendarInput(
   minDate = NULL,
   maxDate = NULL,
   format = "default",
+  primary_color = "#353535",
+  secondary_color = "#ff9900",
   disableToolbar = FALSE,
   view = c("year-day", "year-month-day", "year", "year-month"),
   helperText = NULL,

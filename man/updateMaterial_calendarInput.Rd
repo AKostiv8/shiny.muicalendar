@@ -4,7 +4,7 @@
 \alias{updateMaterial_calendarInput}
 \title{<Add Title>}
 \usage{
-updateMaterial_calendarInput(session, inputId, value, configuration = NULL)
+updateMaterial_calendarInput(session, inputId, configuration = NULL)
 }
 \description{
 <Add Description>

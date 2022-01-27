@@ -13,6 +13,8 @@ material_calendar_keyboardInput <- function(
   minDate = NULL,
   maxDate = NULL,
   format = "default",
+  primary_color = '#353535',
+  secondary_color = '#ff9900',
   disableToolbar = FALSE,
   view = c("year-day", "year-month-day", "year", "year-month"),
   helperText = NULL,
@@ -47,6 +49,8 @@ material_calendar_keyboardInput <- function(
     configuration = list(
       value = lubridate::ymd(value),
       label = label,
+      primary_color = primary_color,
+      secondary_color = secondary_color,
       minDate = lubridate::ymd(minDate),
       maxDate = lubridate::ymd(maxDate),
       format = format,
