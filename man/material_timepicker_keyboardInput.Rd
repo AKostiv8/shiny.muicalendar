@@ -8,6 +8,8 @@ material_timepicker_keyboardInput(
   inputId,
   value = NULL,
   label = NULL,
+  primary_color = "#353535",
+  secondary_color = "#ff9900",
   ampm = FALSE,
   autoOk = TRUE,
   variant = c("default", "static", "inline"),

@@ -38,7 +38,20 @@ ui <- div(
   #                          label = "24 hours", showTodayButton = FALSE,
   #                          openTo = "minutes", views = "hms", outlined = TRUE),
   # material_timepicker_keyboardInput("timekeyboard_test_id", placeholder = "08:00 AM",
-  #                                   mask="__:__ _M", format = "HH:mm:ss")
+  #                                   mask="__:__ _M", format = "HH:mm:ss"),
+  material_datetimeInputInput("testDateTime_id",
+                              # value = Sys.time(),
+                              value = NULL,
+                              label = "Test",
+                              variant = "inline",
+                              autoOk = TRUE,
+                              keyboardControl = TRUE,
+                              outlined = TRUE,
+                              ampm = TRUE,
+                              disablePast = TRUE,
+                              hideTabs = TRUE,
+                              helperText = "helperText"
+                              )
 
 
 )

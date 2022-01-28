@@ -77303,9 +77303,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_calendar_keyboard_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./material_calendar_keyboard.jsx */ "./srcjs/material_calendar_keyboard.jsx");
 /* harmony import */ var _material_timepicker_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./material_timepicker.jsx */ "./srcjs/material_timepicker.jsx");
 /* harmony import */ var _material_timepicker_keyboard_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./material_timepicker_keyboard.jsx */ "./srcjs/material_timepicker_keyboard.jsx");
-/* harmony import */ var reactR__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! reactR */ "reactR");
-/* harmony import */ var reactR__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(reactR__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_datetimeInput_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./material_datetimeInput.jsx */ "./srcjs/material_datetimeInput.jsx");
+/* harmony import */ var reactR__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! reactR */ "reactR");
+/* harmony import */ var reactR__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(reactR__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
 
 
 
@@ -77315,19 +77316,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_8__["createTheme"])({
+
+/* const theme = createTheme({
   palette: {
     primary: {
       // light: will be calculated from palette.primary.main,
-      main: '#031c2b' // dark: will be calculated from palette.primary.main,
+      main: '#031c2b',
+      // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
-
     },
     secondary: {
       main: '#0099f9'
     }
   }
-});
+}); */
+
 Object(_material_action_button_jsx__WEBPACK_IMPORTED_MODULE_0__["default"])();
 Object(_material_switch_button_jsx__WEBPACK_IMPORTED_MODULE_1__["default"])();
 Object(_material_slider_jsx__WEBPACK_IMPORTED_MODULE_2__["default"])();
@@ -77335,6 +77338,7 @@ Object(_material_calendar_jsx__WEBPACK_IMPORTED_MODULE_3__["default"])();
 Object(_material_calendar_keyboard_jsx__WEBPACK_IMPORTED_MODULE_4__["default"])();
 Object(_material_timepicker_jsx__WEBPACK_IMPORTED_MODULE_5__["default"])();
 Object(_material_timepicker_keyboard_jsx__WEBPACK_IMPORTED_MODULE_6__["default"])();
+Object(_material_datetimeInput_jsx__WEBPACK_IMPORTED_MODULE_7__["default"])();
 
 /***/ }),
 
@@ -77673,6 +77677,126 @@ function MaterialCalendarKeyboard(_ref) {
 
 function initCalendarKeyboard() {
   return Object(reactR__WEBPACK_IMPORTED_MODULE_0__["reactShinyInput"])('.material_calendar_keyboard', 'reactmaterialpkg.material_calendar_keyboard', MaterialCalendarKeyboard);
+}
+
+/***/ }),
+
+/***/ "./srcjs/material_datetimeInput.jsx":
+/*!******************************************!*\
+  !*** ./srcjs/material_datetimeInput.jsx ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return initDateTime; });
+/* harmony import */ var reactR__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! reactR */ "reactR");
+/* harmony import */ var reactR__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(reactR__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
+/* harmony import */ var _date_io_date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @date-io/date-fns */ "./node_modules/@date-io/date-fns/build/index.esm.js");
+/* harmony import */ var _material_ui_pickers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/pickers */ "./node_modules/@material-ui/pickers/esm/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+function MaterialDateTime(_ref) {
+  var configuration = _ref.configuration,
+      value = _ref.value,
+      setValue = _ref.setValue;
+  var theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["createTheme"])({
+    palette: {
+      primary: {
+        // light: will be calculated from palette.primary.main,
+        main: configuration.primary_color // dark: will be calculated from palette.primary.main,
+        // contrastText: will be calculated to contrast with palette.primary.main
+
+      },
+      secondary: {
+        main: configuration.secondary_color
+      }
+    }
+  });
+
+  var evalInputVal = function evalInputVal(val) {
+    if (val != null) {
+      return new Date(val);
+    } else {
+      return null;
+    }
+  };
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_2___default.a.useState(evalInputVal(configuration.value)),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      selectedDate = _React$useState2[0],
+      setSelectedDate = _React$useState2[1];
+
+  var switchValue = function switchValue(date) {
+    setValue(value = date);
+  };
+
+  var handleDateChange = function handleDateChange(date) {
+    setSelectedDate(date);
+    switchValue(date);
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["ThemeProvider"], {
+    theme: theme
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_pickers__WEBPACK_IMPORTED_MODULE_5__["MuiPickersUtilsProvider"], {
+    utils: _date_io_date_fns__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    container: true,
+    justifyContent: "space-around"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_pickers__WEBPACK_IMPORTED_MODULE_5__["DateTimePicker"], _extends({
+    margin: "normal"
+  }, configuration.variant != "default" ? {
+    variant: configuration.variant
+  } : {}, {
+    label: configuration.label,
+    value: selectedDate
+  }, configuration.minDate != null ? {
+    minDate: new Date(configuration.minDate)
+  } : null, configuration.maxDate != null ? {
+    maxDate: new Date(configuration.maxDate)
+  } : null, {
+    autoOk: configuration.autoOk,
+    allowKeyboardControl: configuration.keyboardControl
+  }, configuration.outlined ? {
+    inputVariant: "outlined"
+  } : {}, {
+    ampm: configuration.ampm,
+    disableFuture: configuration.disableFuture,
+    disablePast: configuration.disablePast,
+    helperText: configuration.helperText,
+    hideTabs: configuration.hideTabs,
+    onChange: handleDateChange
+  })))));
+}
+
+function initDateTime() {
+  return Object(reactR__WEBPACK_IMPORTED_MODULE_0__["reactShinyInput"])('.material_datetimeInput', 'reactmaterialpkg.material_datetimeInput', MaterialDateTime);
 }
 
 /***/ }),
